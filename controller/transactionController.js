@@ -3,7 +3,7 @@ const transactionModel = require('../model/transactionModel');
 //Opret en ny transaktion
 exports.createTransaction = async (req, res) => {
     try {
-        const transaction = new Transaction(req.body);
+        const transaction = new transactionModel(req.body);
         await transaction.save();
         res.status(201).json(transaction);
     } catch (error) {
@@ -14,7 +14,7 @@ exports.createTransaction = async (req, res) => {
 //Hent alle transaktioner
 exports.getAllTransactions = async (req, res) => {
     try {
-    const transactions = await Transaction.find();
+    const transactions = await transactionModel.find();
     res.status(200).json(transactions);
     } catch (error) {
     res.status(500).json({ error: error.message });

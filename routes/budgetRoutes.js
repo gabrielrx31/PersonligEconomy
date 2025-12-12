@@ -1,5 +1,6 @@
 const express = require('express');
 const budgetController = require('../controller/budgetController');
+const validateBudget = require('../middleware/validateBudget');
 
 const router = express.Router();
 

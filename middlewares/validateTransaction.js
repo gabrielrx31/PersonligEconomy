@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
 
     //Tjek om category er gyldig
     const validateCategories = ['food', 'transport', 'entertainment', 'utilities', 'other'];
-    if (!validateCategories.includes(category)) {
+    if (!validateCategories.includes(category.toLowerCase())) {
         return res.status(400).json({ error: `Category must be one of the following: ${validateCategories.join(', ')}` });
     }
 
