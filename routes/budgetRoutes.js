@@ -7,6 +7,6 @@ const router = express.Router();
 // Hent alle budgetter
 router.get('/', budgetController.getAllBudgets);
 // Opret et nyt budget
-router.post('/', budgetController.createBudget);
+router.post('/', validateBudget, budgetController.createBudget);
 
 module.exports = router;
